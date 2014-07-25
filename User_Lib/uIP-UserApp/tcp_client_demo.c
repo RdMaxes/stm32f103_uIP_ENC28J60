@@ -63,7 +63,7 @@ void tcp_client_aborted(void)
 	tcp_client_sta&=~(1<<7);	//set flag with no link
 	tcp_client_reconnect();		//try to reconnet
 	uip_log((char*)"tcp_client aborted!\r\n");
-
+}
 
 void tcp_client_timedout(void)
 {
@@ -99,23 +99,5 @@ void tcp_client_acked(void)
 void tcp_client_senddata(void)
 {
 	struct tcp_demo_appstate *s = (struct tcp_demo_appstate *)&uip_conn->appstate;	   
-	if(s->textlen>0)uip_send(s->textptr, s->textlen);//发送TCP数据包	 
+	if(s->textlen>0) {uip_send(s->textptr, s->textlen);}						
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
