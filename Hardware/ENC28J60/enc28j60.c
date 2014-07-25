@@ -1,5 +1,5 @@
 #include "spi2.h"
-#include "time6.h"
+#include "timer6.h"
 #include <stdio.h>
 #include "enc28j60.h"	  
 
