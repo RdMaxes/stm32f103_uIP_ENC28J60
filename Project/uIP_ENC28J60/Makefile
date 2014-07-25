@@ -89,7 +89,6 @@ CFLAGS_WARNING= \
 		-Wno-unused-parameter \
 		-Wextra \
 		-Wdouble-promotion \
-		-Wshadow \
 		-Werror=array-bounds \
 		-Wfatal-errors \
 		-Wmissing-prototypes \
