@@ -235,7 +235,6 @@ u8 ENC28J60_Get_EREVID(void)
 	return ENC28J60_Read(EREVID);
 }
 
-#ifdef _UIP_H //if use uIP
 	#include "uip.h"
 	
 	//Send a packet to ethernet via ENC28J60
@@ -292,7 +291,6 @@ u8 ENC28J60_Get_EREVID(void)
 	 	ENC28J60_Write_Op(ENC28J60_BIT_FIELD_SET,ECON2,ECON2_PKTDEC);
 		return(len);
 	}
-#endif
 
 
 
