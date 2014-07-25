@@ -36,21 +36,7 @@
 #include "tapdev.h"
 #include "uip.h"
 #include "enc28j60.h"
-//////////////////////////////////////////////////////////////////////////////////	 
-//ALIENTEK战舰STM32开发板
-//uIP与ENC28J60的底层接口 代码	   
-//正点原子@ALIENTEK
-//技术论坛:www.openedv.com
-//修改日期:2012/9/28
-//版本：V1.0			   								  
-//////////////////////////////////////////////////////////////////////////////////
-
-//用于固定IP地址开关打开后的IP设置，本例程没有用这个
-#define UIP_DRIPADDR0   192
-#define UIP_DRIPADDR1   168
-#define UIP_DRIPADDR2   1
-#define UIP_DRIPADDR3   15
-
+ 
 //MAC地址,必须唯一
 //如果你有两个战舰开发板,想连入路由器,则需要修改MAC地址不一样!
 const uint8_t mymac[6]={0x04,0x02,0x35,0x00,0x00,0x01};	//MAC地址
