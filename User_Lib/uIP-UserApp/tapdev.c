@@ -36,30 +36,28 @@
 #include "tapdev.h"
 #include "uip.h"
 #include "enc28j60.h"
- 
-//MAC地址,必须唯一
-//如果你有两个战舰开发板,想连入路由器,则需要修改MAC地址不一样!
-const uint8_t mymac[6]={0x04,0x02,0x35,0x00,0x00,0x01};	//MAC地址
+
+//MAC address
+const uint8_t mymac[6]={0x04,0x02,0x35,0x00,0x00,0x01};	
 																				  
-//配置网卡硬件，并设置MAC地址 
-//返回值：0，正常；1，失败；
+//Setup both ethernet hardware and MAC address
+//return: 0=success; 1=failed
 uint8_t tapdev_init(void)
 {   	 
 	uint8_t i,res=0;					  
-	res=ENC28J60_Init((uint8_t*)mymac);	//初始化ENC28J60					  
-	//把IP地址和MAC地址写入缓存区
+	res=ENC28J60_Init((uint8_t*)mymac);	//setup ENC28J60					  
+	//write IP address and MAC address into buffer
  	for (i = 0; i < 6; i++)uip_ethaddr.addr[i]=mymac[i];  
-    //指示灯状态:0x476 is PHLCON LEDA(绿)=links status, LEDB(红)=receive/transmit
- 	//PHLCON：PHY 模块LED 控制寄存器	    
+    //RJ45 LED indicator setup    
 	ENC28J60_PHY_Write(PHLCON,0x0476);
 	return res;	
 }
-//读取一包数据  
+//read out a packet 
 uint16_t tapdev_read(void)
 {	
 	return  ENC28J60_Packet_Receive(MAX_FRAMELEN,uip_buf);
 }
-//发送一包数据  
+//send a packet
 void tapdev_send(void)
 {
 	ENC28J60_Packet_Send(uip_len,uip_buf);
