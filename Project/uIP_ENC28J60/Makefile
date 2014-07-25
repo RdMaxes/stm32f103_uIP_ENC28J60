@@ -92,7 +92,7 @@ CFLAGS_WARNING= \
 		
 #Linker
 CFLAGS = -Wl,-T,stm32_flash.ld \
-		 -Wall -g -mlittle-endian -mthumb -nostdlib -ffreestanding \
+		 -Wall -g -mlittle-endian -mthumb -ffreestanding \
 		 -mcpu=cortex-m3
 CFLAGS+=${CFLAGS_INCLUDE} \
         ${CFLAGS_DEFINE} \
