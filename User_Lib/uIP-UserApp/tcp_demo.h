@@ -29,10 +29,10 @@ void tcp_demo_appcall(void);
 void tcp_client_demo_appcall(void);
 void tcp_server_demo_appcall(void);
 
-//定义应用程序回调函数 
+//define user application entrance
 #ifndef UIP_APPCALL
-#define UIP_APPCALL tcp_demo_appcall  //define the uIP mission entrance function
-
+	#define UIP_APPCALL tcp_demo_appcall  //define the uIP mission entrance function
+#endif
 /////////////////////////////////////TCP SERVER/////////////////////////////////////
 extern uint8_t tcp_server_databuf[];   		//buffer for Tx data 
 extern uint8_t tcp_server_sta;			    //server status
