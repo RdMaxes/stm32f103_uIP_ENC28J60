@@ -44,7 +44,7 @@
 extern unsigned int uip_timer;//uip 计时器，每10ms增加1.
 /*---------------------------------------------------------------------------*/
 clock_time_t
-clock_time(void)
+void clock_time(void)
 {
 	return uip_timer; /* 10ms 单位 */	 
 }
