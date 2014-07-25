@@ -15,7 +15,7 @@ void TIM6_IRQHandler(void)
 //setup Timer6
 //arr: period -1
 //psc: prescaler -1
-void TIM6_Int_Init(u16 arr,u16 psc)
+void TIM6_Init(u16 arr,u16 psc)
 {	
     TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
 	NVIC_InitTypeDef NVIC_InitStructure;
