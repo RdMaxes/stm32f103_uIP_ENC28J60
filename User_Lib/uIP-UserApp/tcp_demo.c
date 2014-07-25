@@ -1,6 +1,5 @@
 #include "uip.h"	    
 #include "enc28j60.h"
-#include "httpd.h"
 #include "tcp_demo.h"
 //////////////////////////////////////////////////////////////////////////////////	 
 //ALIENTEK战舰STM32开发板
@@ -18,9 +17,9 @@ void tcp_demo_appcall(void)
   	
 	switch(uip_conn->lport)//本地监听端口80和1200 
 	{
-		case HTONS(80):
-			httpd_appcall(); 
-			break;
+//		case HTONS(80):
+//			httpd_appcall(); 
+//			break;
 		case HTONS(1200):
 		    tcp_server_demo_appcall(); 
 			break;
