@@ -1,5 +1,5 @@
 #include "spi2.h"
-//#include "time6.h"
+#include "time6.h"
 #include <stdio.h>
 #include "enc28j60.h"	  
 
@@ -47,7 +47,7 @@ void ENC28J60_Reset(void)
  	 
 	ENC28J60_SPI2_Init(); //re-init SPI2
 	SPI2_SetSpeed(SPI_BaudRatePrescaler_4);	//9MHz
- //	TIM6_Int_Init(1000,719);//setup a 100kHz clock for ENC28J60
+ 	TIM6_Init(1000,719);//setup a 100kHz clock for ENC28J60
 	ENC28J60_RST_CLEAR(); //reset ENC28J60
 	ENC28J60_delayms(10);	 
 	ENC28J60_RST_SET();	//finish reset				    
