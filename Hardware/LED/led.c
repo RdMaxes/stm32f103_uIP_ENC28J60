@@ -19,7 +19,4 @@ void LED_Init(void)
 	GPIO_InitStructure.GPIO_Mode = 	GPIO_Mode_Out_PP;
 	GPIO_InitStructure.GPIO_Pin = 	LED2_Pin; 	
 	GPIO_Init(LED2_Port, &GPIO_InitStructure);
-
-	GREEN_OFF();
-	RED_OFF();	
 }

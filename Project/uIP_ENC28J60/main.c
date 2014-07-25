@@ -14,9 +14,9 @@ int main(void)
 
 	while (1) 
 	{
-		RED_ON(); delay(80000);
-		RED_OFF(); delay(80000);
-		GREEN_ON(); delay(80000);
-		GREEN_OFF(); delay(80000);				
+		LED1_ON(); delay(80000);
+		LED1_OFF(); delay(80000);
+		LED2_ON(); delay(80000);
+		LED2_OFF(); delay(80000);				
 	}
 }
