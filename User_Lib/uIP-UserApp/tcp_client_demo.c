@@ -67,30 +67,30 @@ void tcp_client_aborted(void)
 {
 	tcp_client_sta&=~(1<<7);	//标志没有连接
 	tcp_client_reconnect();		//尝试重新连接
-	uip_log("tcp_client aborted!\r\n");//打印log
+	uip_log((char*)"tcp_client aborted!\r\n");//打印log
 }
 //连接超时
 void tcp_client_timedout(void)
 {
 	tcp_client_sta&=~(1<<7);	//标志没有连接	   
-	uip_log("tcp_client timeout!\r\n");//打印log
+	uip_log((char*)"tcp_client timeout!\r\n");//打印log
 }
 //连接关闭
 void tcp_client_closed(void)
 {
 	tcp_client_sta&=~(1<<7);	//标志没有连接
 	tcp_client_reconnect();		//尝试重新连接
-	uip_log("tcp_client closed!\r\n");//打印log
+	uip_log((char*)"tcp_client closed!\r\n");//打印log
 }	 
 //连接建立
 void tcp_client_connected(void)
 { 
 	struct tcp_demo_appstate *s=(struct tcp_demo_appstate *)&uip_conn->appstate;
  	tcp_client_sta|=1<<7;		//标志连接成功
-  	uip_log("tcp_client connected!\r\n");//打印log
+  	uip_log((char*)"tcp_client connected!\r\n");//打印log
 	s->state=STATE_CMD; 		//指令状态
 	s->textlen=0;
-	s->textptr="ALIENTEK STM32 Board Connected Successfully!\r\n";//回应消息
+	s->textptr=(uint8_t*)"ALIENTEK STM32 Board Connected Successfully!\r\n";//回应消息
 	s->textlen=strlen((char *)s->textptr);	  
 }
 //发送的数据成功送达
@@ -98,7 +98,7 @@ void tcp_client_acked(void)
 {											    
 	struct tcp_demo_appstate *s=(struct tcp_demo_appstate *)&uip_conn->appstate;
 	s->textlen=0;//发送清零
-	uip_log("tcp_client acked!\r\n");//表示成功发送		 
+	uip_log((char*)"tcp_client acked!\r\n");//表示成功发送		 
 }
 //发送数据给服务端
 void tcp_client_senddata(void)
