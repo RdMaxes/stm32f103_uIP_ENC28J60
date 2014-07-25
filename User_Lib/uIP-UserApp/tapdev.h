@@ -40,7 +40,7 @@
 
 #include <stdint.h>
 
-uint8_t tapdev_init(void);		//修改为带返回值的函数	 
+uint8_t tapdev_init(void);			 
 uint16_t tapdev_read(void);
 void tapdev_send(void);
 
