@@ -23,6 +23,6 @@ int main(void)
 	
 	while (1) 
 	{
-
+		delay(8000);
 	}
 }
