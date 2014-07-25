@@ -40,10 +40,10 @@
 
 #include "clock-arch.h"
 
-//uip时钟
-extern unsigned int uip_timer;//uip 计时器，每10ms增加1.
+//uIP clock, increased by user defined timer. (here we use timer6)
+extern unsigned int uip_timer;//10ms as period
 /*---------------------------------------------------------------------------*/
 clock_time_t clock_time(void)
 {
-	return uip_timer; /* 10ms 单位 */	 
+	return uip_timer; /*10ms*/	 
 }
