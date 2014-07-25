@@ -64,7 +64,8 @@ CFLAGS_INCLUDE+=-I./ \
 		-I$(PERIPHERAL)/spi2 \
 		-I$(PERIPHERAL)/timer6
 		#uIP-1.0 Lib
-		CFLAGS_INCLUDE+=	-I$(USER_LIB)/uIP-1.0/uip
+		CFLAGS_INCLUDE+=	-I$(USER_LIB)/uIP-1.0/uip \
+							-I$(USER_LIB)/uIP-1.0/unix
 		#uIP-UserApp
 		CFLAGS_INCLUDE+=	-I$(USER_LIB)/uIP_UserApp
 #======================================================================#
