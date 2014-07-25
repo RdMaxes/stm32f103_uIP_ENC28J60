@@ -1,6 +1,7 @@
-#ifndef _SPI_H
-#define _SPI_H
+#ifndef _SPI2_H
+#define _SPI2_H
 #include "stm32f10x.h"
+#include "stm32f10x_conf.h"
 
 /*Function Prototype*/ 				  	    													  
 void SPI2_Init(void);	

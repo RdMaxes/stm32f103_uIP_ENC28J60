@@ -36,12 +36,14 @@ USER_LIB=../../User_Lib
 #User Source Files
 SRC+=	./main.c \
 		$(HARDWARE)/LED/led.c \
-		$(PERIPHERAL)/spi/spi.c
+		$(HARDWARE)/ENC28J60/enc28j60.c \
+		$(PERIPHERAL)/spi2/spi2.c
 
 #User Header Files
 CFLAGS_INCLUDE+=-I./ \
 		-I$(HARDWARE)/LED \
-		-I$(PERIPHERAL)/spi
+		-I$(HARDWARE)/ENC28J60 \
+		-I$(PERIPHERAL)/spi2
 #======================================================================#
 #Flags
 CFLAGS_DEFINE= \

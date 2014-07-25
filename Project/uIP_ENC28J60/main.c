@@ -1,7 +1,7 @@
 #include "stm32f10x.h"
 #include "stm32f10x_conf.h"
 #include "led.h"
-#include "spi.h"
+#include "spi2.h"
 
 static void delay(uint32_t delay_count)
 {
