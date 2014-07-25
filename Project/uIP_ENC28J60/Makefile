@@ -39,9 +39,10 @@ SRC+=	./main.c \
 		$(HARDWARE)/LED/led.c \
 		$(HARDWARE)/ENC28J60/enc28j60.c \
 		$(PERIPHERAL)/spi2/spi2.c \
-		$(PERIPHERAL)/timer6/timer6.c \ 
+		$(PERIPHERAL)/timer6/timer6.c \
 		$(PERIPHERAL)/usart2/usart2.c \
 		$(USER_LIB)/myprintf/myprintf.c
+
 		#uIP-1.0 Lib
 		SRC+=	$(USER_LIB)/uIP-1.0/uip/uip.c \
 				$(USER_LIB)/uIP-1.0/uip/psock.c \
@@ -67,6 +68,7 @@ CFLAGS_INCLUDE+=-I./ \
 		-I$(PERIPHERAL)/timer6 \
 		-I$(PERIPHERAL)/usart2 \
 		-I$(USER_LIB)/myprintf
+		
 		#uIP-1.0 Lib
 		CFLAGS_INCLUDE+=	-I$(USER_LIB)/uIP-1.0/uip
 		#uIP-UserApp
