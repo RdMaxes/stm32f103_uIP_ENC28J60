@@ -2,6 +2,7 @@
 #include "stm32f10x_conf.h"
 #include "led.h"
 #include "spi2.h"
+#include "myprintf"
 #include "enc28j60.h"
 #include "timer6.h"
 #include "uip.h"
@@ -20,9 +21,6 @@ int main(void)
 
 	while (1) 
 	{
-		LED1_ON(); delay(80000);
-		LED1_OFF(); delay(80000);
-		LED2_ON(); delay(80000);
-		LED2_OFF(); delay(80000);				
+
 	}
 }
