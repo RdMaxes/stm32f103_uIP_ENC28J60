@@ -9,6 +9,6 @@
 
 /*Function Prototype*/
 void Usart2_Init(uint32_t baudrate);
-
+void USART2_IRQHandler(void);
 #endif
 
