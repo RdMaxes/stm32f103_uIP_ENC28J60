@@ -20,7 +20,8 @@ SRC+=	./system_stm32f10x.c \
 		$(ST)/src/stm32f10x_rcc.c \
 		$(ST)/src/stm32f10x_gpio.c \
 		$(ST)/src/stm32f10x_usart.c \
-		$(ST)/src/stm32f10x_spi.c 
+		$(ST)/src/stm32f10x_spi.c \
+		$(ST)/src/stm32f10x_tim.c
 
 #Included Header Files
 CFLAGS_INCLUDE=-I./ \
