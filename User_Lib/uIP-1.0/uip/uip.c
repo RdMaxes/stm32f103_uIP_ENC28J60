@@ -86,7 +86,6 @@
 #if UIP_CONF_IPV6
 #include "uip-neighbor.h"
 #endif /* UIP_CONF_IPV6 */
-
 #include <string.h>
 
 /*---------------------------------------------------------------------------*/
