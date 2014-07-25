@@ -6,6 +6,7 @@
 #include "timer6.h"
 #include "uip.h"
 #include "tapdev.h"
+#include "timer.h" //it is timer.h of uIP Lib
 
 static void delay(uint32_t delay_count)
 {
