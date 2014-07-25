@@ -18,7 +18,9 @@ STARTUP=../../STM_Lib/Startup/startup_stm32f10x_hd.s
 SRC+=	./system_stm32f10x.c \
 		$(ST)/src/misc.c \
 		$(ST)/src/stm32f10x_rcc.c \
-		$(ST)/src/stm32f10x_gpio.c 
+		$(ST)/src/stm32f10x_gpio.c \
+		$(ST)/src/stm32f10x_usart.c \
+		$(ST)/src/stm32f10x_spi.c 
 
 #Included Header Files
 CFLAGS_INCLUDE=-I./ \
@@ -33,11 +35,13 @@ USER_LIB=../../User_Lib
 
 #User Source Files
 SRC+=	./main.c \
-		$(HARDWARE)/LED/led.c 
+		$(HARDWARE)/LED/led.c \
+		$(PERIPHERAL)/spi/spi.c
 
 #User Header Files
 CFLAGS_INCLUDE+=-I./ \
-		-I$(HARDWARE)/LED
+		-I$(HARDWARE)/LED \
+		-I$(PERIPHERAL)/spi
 #======================================================================#
 #Flags
 CFLAGS_DEFINE= \
