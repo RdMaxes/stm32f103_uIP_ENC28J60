@@ -38,7 +38,7 @@ void tcp_demo_appcall(void)
 //打印日志用
 void uip_log(char *m)
 {			    
-	printf("uIP log:%s\r\n",m);
+	//printf("uIP log:%s\r\n",m);
 }
 
 
