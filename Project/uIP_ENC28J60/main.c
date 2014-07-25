@@ -4,6 +4,8 @@
 #include "spi2.h"
 #include "enc28j60.h"
 #include "timer6.h"
+#include "uip.h"
+#include "tapdev.h"
 
 static void delay(uint32_t delay_count)
 {
