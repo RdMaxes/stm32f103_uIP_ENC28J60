@@ -18,7 +18,7 @@ static void delay(uint32_t delay_count)
 int main(void)
 {
 	LED_Init();
-	Usart2_Init(230400);
+	Usart2_Init(115200);
 	Myprintf_Init(0x00,myputc);
 	
 	while (1) 
