@@ -1,6 +1,6 @@
 #include "timer6.h"
 
-u32 uip_timer=0;//uip system counter
+unsigned int uip_timer=0;//uip system counter
 
 //Timer6 global interrupt handler
 void TIM6_IRQHandler(void)
