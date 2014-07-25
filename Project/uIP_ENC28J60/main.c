@@ -2,6 +2,7 @@
 #include "stm32f10x_conf.h"
 #include "led.h"
 #include "spi2.h"
+#include "usart2.h"
 #include "myprintf.h"
 #include "enc28j60.h"
 #include "timer6.h"
