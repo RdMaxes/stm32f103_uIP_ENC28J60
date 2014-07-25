@@ -21,7 +21,7 @@ void Usart2_Init(uint32_t baudrate)
 	GPIO_InitStructure.GPIO_Pin = 	GPIO_Pin_2;	// USART2 Tx (PA.2)
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 	//Parameters for USART2
-	USART_InitStructure.USART_BaudRate 				= _BaudRate;
+	USART_InitStructure.USART_BaudRate 				= baudrate;
 	USART_InitStructure.USART_WordLength 			= USART_WordLength_8b;
 	USART_InitStructure.USART_StopBits 				= USART_StopBits_1;
 	USART_InitStructure.USART_Parity 				= USART_Parity_No;
