@@ -1,5 +1,3 @@
-#include "sys.h"
-#include "usart.h"	 		   
 #include "uip.h"	    
 #include "enc28j60.h"
 #include "httpd.h"

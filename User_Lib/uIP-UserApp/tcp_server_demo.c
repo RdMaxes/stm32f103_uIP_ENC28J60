@@ -2,9 +2,6 @@
 #include "uip.h"
 #include <string.h>
 #include <stdio.h>
-#include "sys.h"
-#include "sys.h"
-#include "led.h"
 //////////////////////////////////////////////////////////////////////////////////	 
 //ALIENTEK战舰STM32开发板
 //uIP TCP Server测试 代码	   

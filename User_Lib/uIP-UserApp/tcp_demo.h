@@ -5,7 +5,6 @@
    u16_t datatypes. */
 #include "uipopt.h"
 #include "psock.h"
-#include "sys.h"
 
 //通信程序状态字(用户可以自己定义)  
 enum

@@ -39,7 +39,6 @@
 #define __TAPDEV_H__
 
 #include <stdint.h>
-#include "sys.h"
 
 u8 tapdev_init(void);		//修改为带返回值的函数	 
 uint16_t tapdev_read(void);

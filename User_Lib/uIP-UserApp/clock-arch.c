@@ -39,7 +39,6 @@
  */
 
 #include "clock-arch.h"
-#include "sys.h" 
 
 //uip时钟
 extern u32 uip_timer;//uip 计时器，每10ms增加1.

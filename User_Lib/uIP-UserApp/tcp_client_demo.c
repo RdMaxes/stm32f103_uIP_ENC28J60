@@ -1,5 +1,4 @@
 #include "tcp_demo.h"
-#include "sys.h"
 #include "uip.h"
 #include <string.h>
 #include <stdio.h>	   
