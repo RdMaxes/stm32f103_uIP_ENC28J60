@@ -47,6 +47,7 @@ void USART2_IRQHandler(void)
 	u8 res;	    
 	if(USART2->SR&(1<<5))//if rx data
 	{	 
-		res=USART2->DR; 			 
+		res=USART2->DR; 	
+		res = res+1; //dummy code		 
 	}  											 
 }  

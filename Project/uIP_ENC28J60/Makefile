@@ -68,7 +68,7 @@ CFLAGS_INCLUDE+=-I./ \
 		-I$(PERIPHERAL)/timer6 \
 		-I$(PERIPHERAL)/usart2 \
 		-I$(USER_LIB)/myprintf
-		
+
 		#uIP-1.0 Lib
 		CFLAGS_INCLUDE+=	-I$(USER_LIB)/uIP-1.0/uip
 		#uIP-UserApp
