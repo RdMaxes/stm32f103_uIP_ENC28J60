@@ -40,6 +40,22 @@ SRC+=	./main.c \
 		$(HARDWARE)/ENC28J60/enc28j60.c \
 		$(PERIPHERAL)/spi2/spi2.c \
 		$(PERIPHERAL)/timer6/timer6.c 
+		#uIP-1.0 Lib
+		SRC+=	$(USER_LIB)/uIP-1.0/uip/uip.c \
+				$(USER_LIB)/uIP-1.0/uip/psock.c \
+				$(USER_LIB)/uIP-1.0/uip/timer.c \
+				$(USER_LIB)/uIP-1.0/uip/uip-fw.c \
+				$(USER_LIB)/uIP-1.0/uip/uiplib.c \
+				$(USER_LIB)/uIP-1.0/uip/uip_arp.c \
+				$(USER_LIB)/uIP-1.0/uip/uip-split.c \
+				$(USER_LIB)/uIP-1.0/uip/uip-neighbor.c 
+		#uIP-UserApp
+		SRC+=	$(USER_LIB)/uIP-UserApp/tapdev.c \
+				$(USER_LIB)/uIP-UserApp/clock-arch.c \
+				$(USER_LIB)/uIP-UserApp/tcp_demo.c \
+				$(USER_LIB)/uIP-UserApp/tcp_client_demo.c \
+				$(USER_LIB)/uIP-UserApp/tcp_server_demo.c 
+
 
 #User Header Files
 CFLAGS_INCLUDE+=-I./ \
@@ -47,6 +63,10 @@ CFLAGS_INCLUDE+=-I./ \
 		-I$(HARDWARE)/ENC28J60 \
 		-I$(PERIPHERAL)/spi2 \
 		-I$(PERIPHERAL)/timer6
+		#uIP-1.0 Lib
+		CFLAGS_INCLUDE+=	-I$(USER_LIB)/uIP-1.0/uip
+		#uIP-UserApp
+		CFLAGS_INCLUDE+=	-I$(USER_LIB)/uIP_UserApp
 #======================================================================#
 #Flags
 CFLAGS_DEFINE= \
