@@ -6,7 +6,7 @@ void Usart2_Init(uint32_t baudrate)
 {
 	GPIO_InitTypeDef GPIO_InitStructure; 
 	USART_InitTypeDef USART_InitStructure;
-	NVIC_InitTypeDef NVIC_InitStructure; 
+//	NVIC_InitTypeDef NVIC_InitStructure; 
 
   	RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2,ENABLE);
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA,ENABLE);
