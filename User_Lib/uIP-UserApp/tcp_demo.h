@@ -18,8 +18,8 @@ enum
 //uip.h 中定义的 	struct uip_conn  结构体中引用了 uip_tcp_appstate_t		  
 struct tcp_demo_appstate
 {
-	u8_t state;
-	u8_t *textptr;
+	uint8_t state;
+	uint8_t *textptr;
 	int textlen;
 };	 
 typedef struct tcp_demo_appstate uip_tcp_appstate_t;
@@ -33,8 +33,8 @@ void tcp_server_demo_appcall(void);
 #define UIP_APPCALL tcp_demo_appcall //定义回调函数为 tcp_demo_appcall 
 #endif
 /////////////////////////////////////TCP SERVER/////////////////////////////////////
-extern u8 tcp_server_databuf[];   		//发送数据缓存	 
-extern u8 tcp_server_sta;				//服务端状态   
+extern uint8_t tcp_server_databuf[];   		//发送数据缓存	 
+extern uint8_t tcp_server_sta;				//服务端状态   
 //tcp server 函数
 void tcp_server_aborted(void);
 void tcp_server_timedout(void);
@@ -44,8 +44,8 @@ void tcp_server_newdata(void);
 void tcp_server_acked(void);
 void tcp_server_senddata(void);
 /////////////////////////////////////TCP CLIENT/////////////////////////////////////
-extern u8 tcp_client_databuf[];   		//发送数据缓存	 
-extern u8 tcp_client_sta;				//客户端状态   
+extern uint8_t tcp_client_databuf[];   		//发送数据缓存	 
+extern uint8_t tcp_client_sta;				//客户端状态   
 void tcp_client_reconnect(void);
 void tcp_client_connected(void);
 void tcp_client_aborted(void);

@@ -11,8 +11,8 @@
 //版本：V1.0			   								  
 //////////////////////////////////////////////////////////////////////////////////
 			    
-u8 tcp_server_databuf[200];   	//发送数据缓存	  
-u8 tcp_server_sta;				//服务端状态
+uint8_t tcp_server_databuf[200];   	//发送数据缓存	  
+uint8_t tcp_server_sta;				//服务端状态
 //[7]:0,无连接;1,已经连接;
 //[6]:0,无数据;1,收到客户端数据
 //[5]:0,无数据;1,有数据需要发送
@@ -37,7 +37,7 @@ void tcp_server_demo_appcall(void)
 		{
 			if(uip_len>199)
 			{		   
-				((u8*)uip_appdata)[199]=0;
+				((uint8_t*)uip_appdata)[199]=0;
 			}		    
 	    	strcpy((char*)tcp_server_databuf,uip_appdata);				   	  		  
 			tcp_server_sta|=1<<6;//表示收到客户端数据
