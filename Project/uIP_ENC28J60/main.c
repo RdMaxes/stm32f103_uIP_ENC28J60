@@ -28,8 +28,8 @@ int main(void)
  	uip_ipaddr_t ipaddr;
 
 	LED_Init();
-	//Usart2_Init(115200);
-	//Myprintf_Init(0x00,myputc);
+	Usart2_Init(115200);
+	Myprintf_Init(0x00,myputc);
 
  	while(tapdev_init())	//ENC28J60 
 	{								   

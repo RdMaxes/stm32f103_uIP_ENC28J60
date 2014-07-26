@@ -25,7 +25,7 @@ static void ENC28J60_SPI2_Init(void)
    	SPI_InitTypeDef  SPI_InitStructure;
 	GPIO_InitTypeDef  GPIO_InitStructure;
 	RCC_APB1PeriphClockCmd(	RCC_APB1Periph_SPI2,  ENABLE ); 	
-   	RCC_APB2PeriphClockCmd(	RCC_APB2Periph_GPIOB|RCC_APB2Periph_GPIOD|RCC_APB2Periph_GPIOG, ENABLE );//PORTB,D,G时钟使能 
+   	RCC_APB2PeriphClockCmd(	RCC_APB2Periph_GPIOB, ENABLE );//PORTB,D,G时钟使能 
  	//CS pin
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 
  	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 
@@ -38,6 +38,12 @@ static void ENC28J60_SPI2_Init(void)
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_Init(GPIOB, &GPIO_InitStructure);
  	GPIO_SetBits(GPIOB,GPIO_Pin_13|GPIO_Pin_14|GPIO_Pin_15);
+ 	//RST pin
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP; 
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_Init(GPIOB, &GPIO_InitStructure);
+ 	GPIO_SetBits(GPIOB,GPIO_Pin_1);
  	//setup SPI2
 	SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;  
 	SPI_InitStructure.SPI_Mode = SPI_Mode_Master;		
@@ -52,7 +58,12 @@ static void ENC28J60_SPI2_Init(void)
  
 	SPI_Cmd(SPI2, ENABLE); 
 	
-	SPI2_ReadWriteByte(0xff);	
+	SPI2_ReadWriteByte(0xff);
+	while(1)
+	{
+		ENC28J60_RST_SET(); ENC28J60_delayms(20);
+		ENC28J60_RST_CLEAR();ENC28J60_delayms(20);
+	}	
 }
 void ENC28J60_Reset(void)
 {
@@ -60,9 +71,9 @@ void ENC28J60_Reset(void)
 	ENC28J60_SPI2_Init(); //re-init SPI2
 	SPI2_SetSpeed(SPI_BaudRatePrescaler_4);	//9MHz
  	TIM6_Init(1000,719);//setup a 100kHz clock for ENC28J60
-	ENC28J60_RST_CLEAR(); //reset ENC28J60
+	ENC28J60_RST_CLEAR(); //reset ENC28J60		
 	ENC28J60_delayms(10);	 
-	ENC28J60_RST_SET();	//finish reset				    
+	ENC28J60_RST_SET();	//finish reset			    
 	ENC28J60_delayms(10);	 
 }
 
