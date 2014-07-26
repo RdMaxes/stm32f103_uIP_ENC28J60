@@ -53,7 +53,7 @@ void tcp_client_demo_appcall(void)
 void tcp_client_reconnect()
 {
 	uip_ipaddr_t ipaddr;
-	uip_ipaddr(&ipaddr,192,168,1,103);	
+	uip_ipaddr(&ipaddr,192,168,200,103);	
 	uip_connect(&ipaddr,htons(1400)); 	
 }
 

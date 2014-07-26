@@ -38,7 +38,7 @@ int main(void)
 	};
 	uip_init();	//uIP initialize
 
- 	uip_ipaddr(ipaddr, 192,168,1,16);	//setup local IP
+ 	uip_ipaddr(ipaddr, 192,168,200,16);	//setup local IP
 	uip_sethostaddr(ipaddr);					    
 	uip_ipaddr(ipaddr, 192,168,1,1); 	//setup Gateway
 	uip_setdraddr(ipaddr);						 
