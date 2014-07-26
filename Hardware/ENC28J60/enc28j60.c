@@ -22,23 +22,37 @@ static void ENC28J60_delayms(u32 ms)
 //Initialize SPI2 and related I/O for ENC28J60
 static void ENC28J60_SPI2_Init(void)
 {
+   	SPI_InitTypeDef  SPI_InitStructure;
 	GPIO_InitTypeDef  GPIO_InitStructure;
-	//enable pin clock
-   	RCC_APB2PeriphClockCmd(	ENC28J60_CS_CLK|ENC28J60_RST_CLK, ENABLE );
- 	//CS pin setup
-	GPIO_InitStructure.GPIO_Pin = ENC28J60_CS_PIN;				 
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		
+	RCC_APB1PeriphClockCmd(	RCC_APB1Periph_SPI2,  ENABLE ); 	
+   	RCC_APB2PeriphClockCmd(	RCC_APB2Periph_GPIOB|RCC_APB2Periph_GPIOD|RCC_APB2Periph_GPIOG, ENABLE );//PORTB,D,G ±÷” πƒ‹ 
+ 	//CS pin
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 
  	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 
- 	GPIO_Init(ENC28J60_CS_PORT, &GPIO_InitStructure);		
-  	//RST pin setup
-	GPIO_InitStructure.GPIO_Pin = ENC28J60_RST_PIN;				 
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		
- 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 
- 	GPIO_Init(ENC28J60_RST_PORT, &GPIO_InitStructure);	
- 	//deselect 
- 	ENC28J60_NO_SELECT();			 
-	//SPI2 Setup		
-	SPI2_Init(); 
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12;				 
+ 	GPIO_Init(GPIOB, &GPIO_InitStructure);					 
+ 	GPIO_SetBits(GPIOB,GPIO_Pin_12);						 
+	//SPI2 pin	
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP; 
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_Init(GPIOB, &GPIO_InitStructure);
+ 	GPIO_SetBits(GPIOB,GPIO_Pin_13|GPIO_Pin_14|GPIO_Pin_15);
+ 	//setup SPI2
+	SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;  
+	SPI_InitStructure.SPI_Mode = SPI_Mode_Master;		
+	SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;		
+	SPI_InitStructure.SPI_CPOL = SPI_CPOL_Low;		
+	SPI_InitStructure.SPI_CPHA = SPI_CPHA_1Edge;	
+	SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;		
+	SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_256;		
+	SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;	
+	SPI_InitStructure.SPI_CRCPolynomial = 7;	
+	SPI_Init(SPI2, &SPI_InitStructure);  
+ 
+	SPI_Cmd(SPI2, ENABLE); 
+	
+	SPI2_ReadWriteByte(0xff);	
 }
 void ENC28J60_Reset(void)
 {
