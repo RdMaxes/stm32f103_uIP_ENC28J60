@@ -88,7 +88,7 @@ void tcp_server_connected(void)
   	uip_log((char*)"tcp_server connected!\r\n");//打印log
 	s->state=STATE_CMD; 		//指令状态
 	s->textlen=0;
-	s->textptr=(uint8_t*)"Connect to ALIENTEK STM32 Board Successfully!\r\n";
+	s->textptr=(uint8_t*)"Connet to RdMaxes Server!!\r\n";
 	s->textlen=strlen((char *)s->textptr);
 } 
 //发送的数据成功送达

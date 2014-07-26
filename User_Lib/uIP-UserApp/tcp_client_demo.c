@@ -85,7 +85,7 @@ void tcp_client_connected(void)
   	uip_log((char*)"tcp_client connected!\r\n");
 	s->state=STATE_CMD; 		
 	s->textlen=0;
-	s->textptr=(uint8_t*)"ALIENTEK STM32 Board Connected Successfully!\r\n";
+	s->textptr=(uint8_t*)"Connet to RdMaxes Client!!\r\n";
 	s->textlen=strlen((char *)s->textptr);	  
 }
 

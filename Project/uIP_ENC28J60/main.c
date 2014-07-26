@@ -74,7 +74,7 @@ int main(void)
 			}
 			tcp_client_tsta=tcp_client_sta;	//update current server status
 		}
-		delay(8000);		
+		delay(1000);		
 	}
 }
 
