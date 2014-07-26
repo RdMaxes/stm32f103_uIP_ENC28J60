@@ -59,11 +59,6 @@ static void ENC28J60_SPI2_Init(void)
 	SPI_Cmd(SPI2, ENABLE); 
 	
 	SPI2_ReadWriteByte(0xff);
-	while(1)
-	{
-		ENC28J60_RST_SET(); ENC28J60_delayms(20);
-		ENC28J60_RST_CLEAR();ENC28J60_delayms(20);
-	}	
 }
 void ENC28J60_Reset(void)
 {
