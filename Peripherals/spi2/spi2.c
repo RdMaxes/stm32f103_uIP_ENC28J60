@@ -12,7 +12,8 @@ void SPI2_Init(void)
 		GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_13|GPIO_Pin_14|GPIO_Pin_15;
 		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
 		GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-		GPIO_Init(GPIOB, &GPIO_InitStructure);				 
+		GPIO_Init(GPIOB, &GPIO_InitStructure);	
+		GPIO_SetBits(GPIOB,GPIO_Pin_13|GPIO_Pin_14|GPIO_Pin_15);			 
 		//SPI Configuration						                               
 		SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;  
 		SPI_InitStructure.SPI_Mode = SPI_Mode_Master;	

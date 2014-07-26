@@ -39,10 +39,6 @@ static void ENC28J60_SPI2_Init(void)
  	ENC28J60_NO_SELECT();			 
 	//SPI2 Setup		
 	SPI2_Init(); 
-	//Deselect ENC28J60
-	ENC28J60_NO_SELECT();
-	//enable SPI transmission
-	SPI2_ReadWriteByte(0xFF);
 }
 void ENC28J60_Reset(void)
 {
@@ -165,7 +161,7 @@ u8 ENC28J60_Init(u8* macaddr)
 	while(!(ENC28J60_Read(ESTAT)&ESTAT_CLKRDY)&&retry<500)	//wait until clock is stable
 	{
 		retry++;
-		ENC28J60_delayms(10);
+		ENC28J60_delayms(1);
 	};
 	if(retry>=500)return 1;//initialization failed
 	//set Rx buffer address with 8k capacity
