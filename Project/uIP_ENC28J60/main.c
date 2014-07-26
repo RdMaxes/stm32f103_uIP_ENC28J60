@@ -40,7 +40,7 @@ int main(void)
 
  	uip_ipaddr(ipaddr, 192,168,200,16);	//setup local IP
 	uip_sethostaddr(ipaddr);					    
-	uip_ipaddr(ipaddr, 192,168,1,1); 	//setup Gateway
+	uip_ipaddr(ipaddr, 192,168,200,1); 	//setup Gateway
 	uip_setdraddr(ipaddr);						 
 	uip_ipaddr(ipaddr, 255,255,255,0);	//setup Mask
 	uip_setnetmask(ipaddr);
