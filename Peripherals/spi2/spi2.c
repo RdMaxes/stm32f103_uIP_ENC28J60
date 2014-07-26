@@ -43,18 +43,22 @@ void SPI2_SetSpeed(u8 SpeedSet)
 u8 SPI2_ReadWriteByte(u8 TxData)
 {		
 	u8 retry=0;				 
-	while (SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_TXE) == RESET) 
+	//Fill output buffer with data
+	SPI2->DR = TxData;
+	//Wait for transmission to complete
+	while (SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_TXE)==RESET)
 		{
 			retry++;
 			if(retry>200)return 0;
-		}			  
-
-	SPI_I2S_SendData(SPI2, TxData);
-	retry=0;
-	while (SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_RXNE) == RESET); 
-		{
+		}	
+	//Wait for received data to complete
+	while (SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_RXNE)== RESET)
+			{
 			retry++;
 			if(retry>200)return 0;
-		}	  						    
-	return SPI_I2S_ReceiveData(SPI2);
+		}	
+	//Wait for SPI to be ready
+	while (SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_BSY));
+	//Return data from buffer
+	return SPI2->DR;
 }

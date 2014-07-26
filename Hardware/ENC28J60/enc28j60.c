@@ -34,7 +34,9 @@ static void ENC28J60_SPI2_Init(void)
 	GPIO_InitStructure.GPIO_Pin = ENC28J60_RST_PIN;				 
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		
  	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 
- 	GPIO_Init(ENC28J60_RST_PORT, &GPIO_InitStructure);				 
+ 	GPIO_Init(ENC28J60_RST_PORT, &GPIO_InitStructure);	
+ 	//deselect 
+ 	ENC28J60_NO_SELECT();			 
 	//SPI2 Setup		
 	SPI2_Init(); 
 	//Deselect ENC28J60
@@ -163,7 +165,7 @@ u8 ENC28J60_Init(u8* macaddr)
 	while(!(ENC28J60_Read(ESTAT)&ESTAT_CLKRDY)&&retry<500)	//wait until clock is stable
 	{
 		retry++;
-		ENC28J60_delayms(1);
+		ENC28J60_delayms(10);
 	};
 	if(retry>=500)return 1;//initialization failed
 	//set Rx buffer address with 8k capacity

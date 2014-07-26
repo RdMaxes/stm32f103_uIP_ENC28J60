@@ -20,7 +20,7 @@ static void delay(uint32_t delay_count)
 	while (delay_count) delay_count--;
 }
 
-
+const uint8_t sudomymac[6]={0x04,0x02,0x35,0x00,0x00,0x01};	
 int main(void)
 {
 	u8 tcp_server_tsta=0XFF;
@@ -30,6 +30,8 @@ int main(void)
 	LED_Init();
 	Usart2_Init(115200);
 	Myprintf_Init(0x00,myputc);
+
+	ENC28J60_Init((uint8_t*)sudomymac);
 
  	while(tapdev_init())	//ENC28J60 
 	{								   
