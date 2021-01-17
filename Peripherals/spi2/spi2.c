@@ -53,6 +53,7 @@ u8 SPI2_ReadWriteByte(u8 TxData)
 			if(retry>200)return 0;
 		}	
 	//Wait for received data to complete
+	retry=0;
 	while (SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_RXNE)== RESET)
 			{
 			retry++;
